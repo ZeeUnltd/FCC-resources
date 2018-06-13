@@ -1,4 +1,5 @@
-=================================Question:
+**Question**:
+
 Basic JavaScript: Profile Lookup
 
 We have an array of objects representing different people in our contacts lists.
@@ -31,10 +32,12 @@ function lookUpProfile(name, prop){
 // Only change code above this line
 }
 ```
+
 // Change these values to test your function
 lookUpProfile("Akira", "likes");
 
-====================Basic JavaScript: Generate Random Whole Numbers with JavaScript
+
+**Question** Basic JavaScript: Generate Random Whole Numbers with JavaScript
 
 It's great that we can generate random decimal numbers, but it's even more useful if we use it to generate random whole numbers.
 
@@ -69,7 +72,7 @@ function randomWholeNum() {
 }
 ```
 
-===========================Question
+**Question**
 Basic JavaScript: Generate Random Whole Numbers within a Range
 
 Instead of generating a random number between zero and a given number like we did before, we can generate a random number that falls within a range of two specific numbers.
@@ -106,8 +109,7 @@ function randomRange(myMin, myMax) {
 var myRandom = randomRange(5, 15);
 ```
 
-
-==================================Question
+**Question**
 Basic JavaScript: Use the parseInt Function
 
 The parseInt() function parses a string and returns an integer. Here's an example:
@@ -130,7 +132,7 @@ convertToInteger("56");
 
 ```
 
-================================Question
+**Question**
 Basic JavaScript: Use the Conditional (Ternary) Operator
 
 The conditional operator, also called the ternary operator, can be used as a one line if-else expression.
@@ -161,6 +163,7 @@ This can be re-written using the conditional operator:
 Use the conditional operator in the checkEqual function to check if two numbers are equal or not. The function should return either true or false.
 
 
+
 ```JavaScript
 ******************Answer*************
 function checkEqual(a, b) {
@@ -173,7 +176,7 @@ checkEqual(1, 2);
 
 ```
 
-===============================Question
+**Question**
 Basic JavaScript: Use Multiple Conditional (Ternary) Operators
 
 In the previous challenge, you used a single conditional operator. You can also chain them together to check for multiple conditions.
@@ -195,11 +198,13 @@ The following function uses if, else if, and else statements to check multiple c
 ```
 
 The above function can be re-written using multiple conditional operators:
+
 ```JavaScript
     function findGreaterOrEqual(a, b) {
     return (a === b) ? "a and b are equal" : (a > b) ? "a is greater" : "b is greater";
     }
 ```
+
 Use multiple conditional operators in the checkSign function to check if a number is positive, negative or zero.
 
 ```JavaScript
@@ -212,7 +217,7 @@ checkSign(10);
 
 ```
 
-==============================Questions
+**Questions**
 ES6: Explore Differences Between the var and let Keywords
 
 One of the biggest problems with declaring variables with the var keyword is that you can overwrite variable declarations without an error.
@@ -262,7 +267,8 @@ function catTalk() {
 catTalk();
 
 ```
-=========================Question=======
+
+**Question**
 ES6: Compare Scopes of the var and let Keywords
 
 When you declare a variable with the var keyword, it is declared globally, or locally if declared inside a function.
@@ -270,6 +276,7 @@ When you declare a variable with the var keyword, it is declared globally, or lo
 The let keyword behaves similarly, but with some extra features. When you declare a variable with the let keyword inside a block, statement, or expression, its scope is limited to that block, statement, or expression.
 
 For example:
+
 ```JavaScript
     var numArray = [];
     for (var i = 0; i < 3; i++) {
@@ -280,7 +287,9 @@ For example:
     console.log(i);
     // returns 3
 ```
+
 With the var keyword, i is declared globally. So when i++ is executed, it updates the global variable. This code is similar to the following:
+
 ```JavaScript
     var numArray = [];
     var i;
@@ -292,7 +301,9 @@ With the var keyword, i is declared globally. So when i++ is executed, it update
     console.log(i);
     // returns 3
 ```
+
 This behavior will cause problems if you were to create a function and store it for later use inside a for loop that uses the i variable. This is because the stored function will always refer to the value of the updated global i variable.
+
 ```JavaScript
     var printNumTwo;
     for (var i = 0; i < 3; i++) {
@@ -305,7 +316,9 @@ This behavior will cause problems if you were to create a function and store it 
     console.log(printNumTwo());
     // returns 3
 ```
+
 As you can see, printNumTwo() prints 3 and not 2. This is because the value assigned to i was updated and the printNumTwo() returns the global i and not the value i had when the function was created in the for loop. The let keyword does not follow this behavior:
+
 ```JavaScript
     'use strict';
     let printNumTwo;
@@ -321,6 +334,7 @@ As you can see, printNumTwo() prints 3 and not 2. This is because the value assi
     console.log(i);
     // returns "i is not defined"
 ```
+
 i is not defined because it was not declared in the global scope. It is only declared within the for loop statement. printNumTwo() returned the correct value because three different i variables with unique values (0, 1, and 2) were created by the let keyword within the loop statement.
 
 Fix the code so that i declared in the if statement is a separate variable than i declared in the first line of the function. Be certain not to use the var keyword anywhere in your code.
@@ -343,7 +357,8 @@ function checkScope() {
 }
 
 ```
-==================================Question
+
+**Question**
 
 ES6: Mutate an Array Declared with const
 
@@ -361,13 +376,15 @@ However, it is important to understand that objects (including arrays and functi
     s[2] = 45; // works just as it would with an array declared with var or let
     console.log(s); // returns [5, 6, 45]
 ```
+
 As you can see, you can mutate the object [5, 6, 7] itself and the variable s will still point to the altered array [5, 6, 45]. Like all arrays, the array elements in s are mutable, but because const was used, you cannot use the variable identifier s to point to a different array using the assignment operator.
 
 An array is declared as const s = [5, 7, 2]. Change the array to [2, 5, 7] using various element assignment.
 
+**Answer**
 
 ```JavaScript
-**********************Answer
+Answer
 const s = [5, 7, 2];
 function editInPlace() {
   "use strict";
@@ -608,6 +625,8 @@ Copy all contents of arr1 into another array arr2 using the spread operator.
 
 
 **Answer**
+
+
 ```JavaScript
 const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
 let arr2;
@@ -618,7 +637,7 @@ let arr2;
 console.log(arr2);
 ```
 
-***Question***
+**Question**
 ES6: Use Destructuring Assignment to Assign Variables from Objects
 
 We saw earlier how spread operator can effectively spread, or unpack, the contents of the array.
@@ -626,16 +645,20 @@ We saw earlier how spread operator can effectively spread, or unpack, the conten
 We can do something similar with objects as well. Destructuring assignment is special syntax for neatly assigning values taken directly from an object to variables.
 
 Consider the following ES5 code:
+
 ```JavaScript
     var voxel = {x: 3.6, y: 7.4, z: 6.54 };
     var x = voxel.x; // x = 3.6
     var y = voxel.y; // y = 7.4
     var z = voxel.z; // z = 6.54
 ```
+
 Here's the same assignment statement with ES6 destructuring syntax:
+
 ```JavaScript
     const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54
 ```
+
 If instead you want to store the values of voxel.x into a, voxel.y into b, and voxel.z into c, you have that freedom as well.
 ```JavaScript
     const { x : a, y : b, z : c } = voxel // a = 3.6, b = 7.4, c = 6.54
