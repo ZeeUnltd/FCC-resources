@@ -792,4 +792,479 @@ console.log(source); // should be [1,2,3,4,5,6,7,8,9,10];
 ```
 
 
-***Question***
+**Question**
+ES6: Use Destructuring Assignment to Pass an Object as a Function's Parameters
+
+In some cases, you can destructure the object in a function argument itself.
+
+Consider the code below:
+
+```javascript
+    const profileUpdate = (profileData) => {
+    const { name, age, nationality, location } = profileData;
+    // do something with these variables
+    }
+```
+
+This effectively destructures the object sent into the function. This can also be done in-place:
+
+```javascript
+    const profileUpdate = ({ name, age, nationality, location }) => {
+    /* do something with these fields */
+    }
+```
+
+This removes some extra lines and makes our code look neat.
+
+This has the added benefit of not having to manipulate an entire object in a function; only the fields that are needed are copied inside the function.
+
+Use destructuring assignment within the argument to the function half to send only max and min inside the function.
+
+
+**Answer**
+
+====
+
+
+**Question**
+
+ES6: Create Strings using Template Literals
+
+A new feature of ES6 is the template literal. This is a special type of string that allows you to use string interpolation features to create strings.
+
+Consider the code below:
+
+```javascript
+
+    const person = {
+    name: "Zodiac Hasbro",
+    age: 56
+    };
+
+    // string interpolation
+    const greeting = `Hello, my name is ${person.name}!
+    I am ${person.age} years old.`;
+
+    console.log(greeting); // prints
+    // Hello, my name is Zodiac Hasbro!
+    // I am 56 years old.
+```
+
+A lot of things happened there.
+
+Firstly, the ```${variable}``` syntax used above is a place holder. Basically, you won't have to use concatenation with the + operator anymore. To add variables to strings, you just drop the variable in a template string and wrap it with ```${ and }```.
+
+Secondly, the example uses backticks ```(`)```, not quotes ```(' or ")```, to wrap the string. Notice that the string is multi-line.
+
+This new way of creating strings gives you more flexibility to create robust strings.
+
+Use template literal syntax with backticks to display each entry of the result object's failure array. Each entry should be wrapped inside an li element with the class attribute text-warning, and listed within the resultDisplayArray.
+
+**Answer**
+
+```javascript
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["id-blacklist", "no-dup-keys"]
+};
+function makeList(arr) {
+  "use strict";
+
+  // change code below this line
+  const resultDisplayArray = arr.map(fail =>`<li class="text-warning">${fail}</li>`);
+  console.log(resultDisplayArray);
+  // change code above this line
+
+  return resultDisplayArray;
+}
+/**
+ * makeList(result.failure) should return:
+ * [ <li class="text-warning">no-var</li>,
+ *   <li class="text-warning">var-on-top</li>, 
+ *   <li class="text-warning">linebreak</li> ]
+ **/
+const resultDisplayArray = makeList(result.success);
+```
+**Question**
+
+ES6: Write Concise Object Literal Declarations Using Simple Fields
+
+ES6 adds some nice support for easily defining object literals.
+
+Consider the following code:
+
+```javascript
+    const getMousePosition = (x, y) => ({
+    x: x,
+    y: y
+    });
+```
+
+getMousePosition is a simple function that returns an object containing two fields.
+
+ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted tox: x (or something equivalent) under the hood.
+
+Here is the same function from above rewritten to use this new syntax:
+
+```javascript
+    const getMousePosition = (x, y) => ({ x, y });
+```
+
+Use simple fields with object literals to create and return a Person object.
+
+**Answer**
+
+```javascript
+const createPerson = (name, age, gender) => {
+  "use strict";
+  // change code below this line
+  return (
+    name,age,gender
+  );
+  //or
+   return ({
+    name,age,gender
+   });
+  // change code above this line
+};
+console.log(createPerson("Zodiac Hasbro", 56, "male")); // returns a proper object
+```
+
+**Question**
+
+ES6: Write Concise Declarative Functions with ES6
+
+When defining functions within objects in ES5, we have to use the keyword function as follows:
+
+```javascript
+    const person = {
+    name: "Taylor",
+    sayHello: function() {
+    return `Hello! My name is ${this.name}.`;
+    }
+    };
+```
+
+With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
+
+```javascript
+    const person = {
+    name: "Taylor",
+    sayHello() {
+    return `Hello! My name is ${this.name}.`;
+    }
+    };
+```
+
+Refactor the function setGear inside the object bicycle to use the shorthand syntax described above.
+
+**Answer**
+
+```javascript
+// change code below this line
+const bicycle = {
+  gear: 2,
+  setGear (newGear) {
+    "use strict";
+    this.gear = newGear;
+  }
+};
+// change code above this line
+bicycle.setGear(3);
+console.log(bicycle.gear);
+```
+
+**Question**
+
+ES6: Use class Syntax to Define a Constructor Function
+
+ES6 provides a new syntax to help create objects, using the keyword class.
+
+This is to be noted, that the class syntax is just a syntax, and not a full-fledged class based implementation of object oriented paradigm, unlike in languages like Java, or Python, or Ruby etc.
+
+In ES5, we usually define a constructor function, and use the new keyword to instantiate an object.
+
+```javascript
+    var SpaceShuttle = function(targetPlanet){
+    this.targetPlanet = targetPlanet;
+    }
+    var zeus = new spaceShuttle('Jupiter');
+```
+
+The class syntax simply replaces the constructor function creation:
+
+```javascript
+    class SpaceShuttle {
+    constructor(targetPlanet){
+    this.targetPlanet = targetPlanet;
+    }
+    }
+    const zeus = new spaceShuttle('Jupiter');
+```
+
+Notice that the class keyword declares a new function, and a constructor was added, which would be invoked when new is called - to create a new object.
+
+Use class keyword and write a proper constructor to create the Vegetable class.
+
+The Vegetable lets you create a vegetable object, with a property name, to be passed to constructor.
+
+**Answer**
+
+```javascript
+function makeClass() {
+  "use strict";
+  /* Alter code below this line */
+class Vegetable {
+  constructor (example){
+    this.example = example
+  }
+  
+  name (){
+    return example
+  }
+}
+  /* Alter code above this line */
+  return Vegetable;
+}
+const Vegetable = makeClass();
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // => should be 'carrot'
+```
+
+**Question**
+
+ES6: Use getters and setters to Control Access to an Object
+
+You can obtain values from an object, and set a value of a property within an object.
+
+These are classically called getters and setters.
+
+Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
+
+Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
+
+```javascript
+    class Book {
+    constructor(author) {
+    this._author = author;
+    }
+    // getter
+    get writer(){
+    return this._author;
+    }
+    // setter
+    set writer(updatedAuthor){
+    this._author = updatedAuthor;
+    }
+    }
+    const lol = new Book('anonymous');
+    console.log(lol.writer);
+    lol.writer = 'wut';
+    console.log(lol.writer);
+```
+
+Notice the syntax we are using to invoke the getter and setter - as if they are not even functions.
+
+Getters and setters are important, because they hide internal implementation details.
+
+Use class keyword to create a Thermostat class. The constructor accepts Fahrenheit temperature.
+
+Now create getter and setter in the class, to obtain the temperature in Celsius scale.
+
+Remember that ``` C = 5/9 * (F - 32) and F = C * 9.0 / 5 + 32```, where F is the value of temperature in Fahrenheit scale, and C is the value of the same temperature in Celsius scale
+
+Note
+
+When you implement this, you would be tracking the temperature inside the class in one scale - either Fahrenheit or Celsius.
+
+This is the power of getter or setter - you are creating an API for another user, who would get the correct result, no matter which one you track.
+
+In other words, you are abstracting implementation details from the consumer.
+
+**Answer**
+
+```javascript
+function makeClass() {
+  "use strict";
+  /* Alter code below this line */
+class Thermostat {
+  constructor (fahrenheit){
+    this.F = fahrenheit
+  }
+
+  get (){
+    return this.F
+  }
+
+  set (val){
+    this.F = val
+  }
+
+  temperature (){
+    const C = 5/9 * (F - 32)
+    return C
+  }
+}
+  /* Alter code above this line */
+  return Thermostat;
+}
+const Thermostat = makeClass();
+const thermos = new Thermostat(76); // setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in C
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in C
+```
+
+**Question**
+
+ES6: Understand the Differences Between import and require
+
+In the past, the function require() would be used to import the functions and code in external files and modules. While handy, this presents a problem: some files and modules are rather large, and you may only need certain code from those external resources.
+
+ES6 gives us a very handy tool known as import. With it, we can choose which parts of a module or file to load into a given file, saving time and memory.
+
+Consider the following example. Imagine that math_array_functions has about 20 functions, but I only need one, countItems, in my current file. The old require() approach would force me to bring in all 20 functions. With this new import syntax, I can bring in just the desired function, like so:
+
+```
+    import { countItems } from "math_array_functions"
+```
+A description of the above code:
+
+    import { function } from "file_path_goes_here"
+    // We can also import variables the same way!
+
+There are a few ways to write an import statement, but the above is a very common use-case.
+
+Note
+The whitespace surrounding the function inside the curly braces is a best practice - it makes it easier to read the import statement.
+
+Note
+The lessons in this section handle non-browser features. import, and the statements we introduce in the rest of these lessons, won't work on a browser directly. However, we can use various tools to create code out of this to make it work in browser.
+
+Note
+In most cases, the file path requires a ./ before it; otherwise, node will look in the node_modules directory first trying to load it as a dependency.
+
+Add the appropriate import statement that will allow the current file to use the capitalizeString function. The file where this function lives is called "string_functions", and it is in the same directory as the current file.
+
+**Answer**
+
+```javascript
+"use strict";
+import { capitalizeString } from "string_functions"
+capitalizeString("hello!");
+```
+
+**Question**
+
+ES6: Use export to Reuse a Code Block
+
+In the previous challenge, you learned about import and how it can be leveraged to import small amounts of code from large files. In order for this to work, though, we must utilize one of the statements that goes with import, known as export. When we want some code - a function, or a variable - to be usable in another file, we must export it in order to import it into another file. Like import, export is a non-browser feature.
+
+The following is what we refer to as a named export. With this, we can import any code we export into another file with the import syntax you learned in the last lesson. Here's an example:
+
+```
+    const capitalizeString = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    export { capitalizeString } //How to export functions.
+    export const foo = "bar"; //How to export variables.
+```
+
+Alternatively, if you would like to compact all your export statements into one line, you can take this approach:
+
+    const capitalizeString = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    const foo = "bar";
+    export { capitalizeString, foo }
+
+Either approach is perfectly acceptable.
+
+Below are two variables that I want to make available for other files to use. Utilizing the first way I demonstrated export, export the two variables.
+
+**Answer**
+
+```javascript
+"use strict";
+export const foo = "bar";
+export const boo = "far";
+```
+
+**Question**
+
+ES6: Use * to Import Everything from a File
+
+Suppose you have a file that you wish to import all of its contents into the current file. This can be done with the import * syntax.
+
+Here's an example where the contents of a file named "math_functions" are imported into a file in the same directory:
+```
+    import * as myMathModule from "math_functions";
+    myMathModule.add(2,3);
+    myMathModule.subtract(5,3);
+```
+And breaking down that code:
+
+    import * as object_with_name_of_your_choice from "file_path_goes_here"
+    object_with_name_of_your_choice.imported_function
+
+You may use any name following the import * as portion of the statement. In order to utilize this method, it requires an object that receives the imported values. From here, you will use the dot notation to call your imported values.
+
+The code below requires the contents of a file, "capitalize_strings", found in the same directory as it, imported. Add the appropriate import * statement to the top of the file, using the object provided.
+
+**Answer**
+
+```javascript
+"use strict";
+import * as contents from "capitalize_strings";
+```
+
+**Question**
+
+ES6: Create an Export Fallback with export default
+
+In the export lesson, you learned about the syntax referred to as a named export. This allowed you to make multiple functions and variables available for use in other files.
+
+There is another export syntax you need to know, known as export default. Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
+
+Here is a quick example of export default:
+
+```
+    export default function add(x,y) {
+    return x + y;
+    }
+```
+Note: Since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. Additionally, you cannot use export default with var, let, or const
+
+The following function should be the fallback value for the module. Please add the necessary code to do so.
+
+**Answer**
+
+```javascript
+"use strict";
+export default function subtract(x,y) {return x - y;}
+```
+
+**Question**
+ES6: Import a Default Export
+
+In the last challenge, you learned about export default and its uses. It is important to note that, to import a default export, you need to use a different import syntax.
+
+In the following example, we have a function, add, that is the default export of a file, "math_functions". Here is how to import it:
+
+```
+    import add from "math_functions";
+    add(5,4); //Will return 9
+```
+
+The syntax differs in one key place - the imported value, add, is not surrounded by curly braces, ``` {}```. Unlike exported values, the primary method of importing a default export is to simply write the value's name after import.
+
+In the following code, please import the default export, subtract, from the file "math_functions", found in the same directory as this file.
+
+**Answer**
+
+```javascript
+"use strict";
+import subtract from "math_functions"
+subtract(7,4);
+```
