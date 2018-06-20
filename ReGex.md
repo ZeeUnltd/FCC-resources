@@ -329,3 +329,301 @@ The character to do this is the asterisk or star: `*`.
 Create a regex chewieRegex that uses the * character to match all the upper and lower"a" characters in chewieQuote. Your regex does not need flags, and it should not match any of the other quotes.
 
 ## Answer
+
+```javascript
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+let chewieRegex = /A[a]*/; // Change this line
+let result = chewieQuote.match(chewieRegex);
+
+```
+
+
+## Question
+Regular Expressions: Find Characters with Lazy Matching
+
+In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern.
+
+You can apply the regex `/t[a-z]*i/` to the string "titanic". This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
+
+Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest sub-string possible to fit the pattern.
+
+However, you can use the ? character to change it to lazy matching. "titanic" matched against the adjusted regex of `/t[a-z]*?i/` returns `["ti"]`.
+
+Fix the regex ```/<.*>/``` to return the HTML tag ```<h1>``` and not the text "```<h1>Winter is coming</h1>```". Remember the wildcard . in a regular expression matches any character.
+
+## Answer
+
+```javascript
+
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.[h1]>/; // Change this line
+let result = text.match(myRegex);
+console.log(result)
+```
+
+
+## Question
+
+Regular Expressions: Find One or More Criminals in a Hunt
+
+Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away, but you don't know how many. However, you do know that they stay close together when they are around other people. You are responsible for finding all of the criminals at once.
+
+Here's an example to review how to do this:
+
+The regex /z+/ matches the letter z when it appears one or more times in a row. It would find matches in all of the following strings:
+
+```
+    "z"
+    "zzzzzz"
+    "ABCzzzz"
+    "zzzzABC"
+    "abczzzzzzzzzzzzzzzzzzzzzabc"
+```
+But it does not find matches in the following strings since there are no letter z characters:
+
+    ""
+    "ABC"
+    "abcabc"
+
+Write a greedy regex that finds one or more criminals within a group of other people. A criminal is represented by the capital letter C.
+
+
+
+
+## Answer
+
+```javascript
+// example crowd gathering
+let crowd = 'P1P2P3P4P5P6CCCP7P8P9';
+
+let reCriminals = /C+/; // Change this line
+
+let matchedCriminals = crowd.match(reCriminals);
+console.log(matchedCriminals);
+
+```
+
+## Question
+
+Regular Expressions: Match Beginning String Patterns
+
+Prior challenges showed that regular expressions can be used to look for a number of matches. They are also used to search for patterns in specific positions in strings.
+
+In an earlier challenge, you used the caret character (^) inside a character set to create a negated character set in the form [^thingsThatWillNotBeMatched]. Outside of a character set, the caret is used to search for patterns at the beginning of strings.
+```
+    let firstString = "Ricky is first and can be found.";
+    let firstRegex = /^Ricky/;
+    firstRegex.test(firstString);
+    // Returns true
+    let notFirst = "You can't find Ricky now.";
+    firstRegex.test(notFirst);
+    // Returns false
+```
+Use the caret character in a regex to find "Cal" only in the beginning of the string rickyAndCal.
+
+
+## Answer
+
+```javascript
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // Change this line
+let result = calRegex.test(rickyAndCal);
+console.log(result, rickyAndCal.match(calRegex))
+```
+
+## Question
+Regular Expressions: Match Ending String Patterns
+
+In the last challenge, you learned to use the caret character to search for patterns at the beginning of strings. There is also a way to search for patterns at the end of strings.
+
+You can search the end of strings using the dollar sign character $ at the end of the regex.
+
+```
+    let theEnding = "This is a never ending story";
+    let storyRegex = /story$/;
+    storyRegex.test(theEnding);
+    // Returns true
+    let noEnding = "Sometimes a story will have to end";
+    storyRegex.test(noEnding);
+    // Returns false
+```
+Use the anchor character ($) to match the string "caboose" at the end of the string caboose.
+
+## Answer
+
+```javascript
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /caboose$/; // Change this line
+let result = lastRegex.test(caboose);
+```
+
+## Question
+Regular Expressions: Match All Letters and Numbers
+
+Using character classes, you were able to search for all letters of the alphabet with [a-z]. This kind of character class is common enough that there is a shortcut for it, although it includes a few extra characters as well.
+
+The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_]. This character class matches upper and lowercase letters plus numbers. Note, this character class also includes the underscore character (_).
+
+```
+    let longHand = /[A-Za-z0-9_]+/;
+    let shortHand = /\w+/;
+    let numbers = "42";
+    let varNames = "important_var";
+    longHand.test(numbers); // Returns true
+    shortHand.test(numbers); // Returns true
+    longHand.test(varNames); // Returns true
+    shortHand.test(varNames); // Returns true
+```
+These shortcut character classes are also known as shorthand character classes.
+
+Use the shorthand character class \w to count the number of alphanumeric characters in various quotes and strings.
+
+## Answer
+
+```javascript
+
+let quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/g; // Change this line
+let result = quoteSample.match(alphabetRegexV2).length;
+console.log(result) 
+```
+
+
+## Question
+
+Regular Expressions: Match Everything But Letters and Numbers
+
+You've learned that you can use a shortcut to match alphanumerics [A-Za-z0-9_] using \w. A natural pattern you might want to search for is the opposite of alphanumerics.
+
+You can search for the opposite of the \w with \W. Note, the opposite pattern uses a capital letter. This shortcut is the same as [^A-Za-z0-9_].
+
+```
+    let shortHand = /\W/;
+    let numbers = "42%";
+    let sentence = "Coding!";
+    numbers.match(shortHand); // Returns ["%"]
+    sentence.match(shortHand); // Returns ["!"]
+```
+Use the shorthand character class \W to count the number of non-alphanumeric characters in various quotes and strings.
+## Answer
+
+```javascript
+let quoteSample = "The five boxing wizards jump quickly.";
+let nonAlphabetRegex = /\W/g; // Change this line
+let result = quoteSample.match(nonAlphabetRegex).length;
+```
+
+
+## Question
+Regular Expressions: Match All Numbers
+
+You've learned shortcuts for common string patterns like alphanumerics. Another common pattern is looking for just digits or numbers.
+
+The shortcut to look for digit characters is `\d`, with a lowercase d. This is equal to the character class `[0-9]`, which looks for a single character of any number between zero and nine.
+
+Use the shorthand character class `\d` to count how many digits are in movie titles. Written out numbers ("six" instead of 6) do not count.
+## Answer
+
+```javascript
+let numString = "Your sandwich will be $5.00";
+let numRegex = /\d/g; // Change this line
+let result = numString.match(numRegex).length;
+```
+
+
+## Question
+Regular Expressions: Match All Non-Numbers
+
+The last challenge showed how to search for digits using the shortcut \d with a lowercase d. You can also search for non-digits using a similar shortcut that uses an uppercase D instead.
+
+The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9], which looks for a single character that is not a number between zero and nine.
+
+Use the shorthand character class for non-digits \D to count how many non-digits are in movie titles.
+--
+
+## Answer
+
+```javascript
+let numString = "Your sandwich will be $5.00";
+let noNumRegex = /\D/g; // Change this line
+let result = numString.match(noNumRegex).length;
+```
+
+## Question
+Regular Expressions: Restrict Possible Usernames
+
+Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+
+You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+
+1) The only numbers in the username have to be at the end. There can be zero or more of them at the end.
+
+2) Username letters can be lowercase and uppercase.
+
+3) Usernames have to be at least two characters long. A two-letter username can only use alphabet letter characters.
+
+Change the regex userCheck to fit the constraints listed above.
+## Answer
+
+```javascript
+let username = "JackOfAllTrades";
+let userCheck = /[a-z]{2,}?\d*/gi; // Change this line
+let result = userCheck.test(username);
+```
+
+## Question
+Regular Expressions: Match Whitespace
+
+The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
+
+You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
+
+    let whiteSpace = "Whitespace. Whitespace everywhere!"
+    let spaceRegex = /\s/g;
+    whiteSpace.match(spaceRegex);
+    // Returns [" ", " "]
+
+Change the regex countWhiteSpace to look for multiple whitespace characters in a string.
+## Answer
+
+```javascript
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g; // Change this line
+let result = sample.match(countWhiteSpace);
+```
+
+## Question
+Regular Expressions: Match Non-Whitespace Characters
+
+You learned about searching for whitespace using \s, with a lowercase s. You can also search for everything except whitespace.
+
+Search for non-whitespace using \S, which is an uppercase s. This pattern will not match whitespace, carriage return, tab, form feed, and new line characters. You can think of it being similar to the character class [^ \r\t\f\n\v].
+
+    let whiteSpace = "Whitespace. Whitespace everywhere!"
+    let nonSpaceRegex = /\S/g;
+    whiteSpace.match(nonSpaceRegex).length; // Returns 32
+
+Change the regex countNonWhiteSpace to look for multiple non-whitespace characters in a string.
+## Answer
+
+```javascript
+let sample = "Whitespace is important in separating words";
+let countNonWhiteSpace = /\S/g; // Change this line
+let result = sample.match(countNonWhiteSpace);
+```
+
+## Question
+
+## Answer
+
+```javascript
+
+```
+
+## Question
+
+## Answer
+
+```javascript
+
+```
