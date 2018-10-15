@@ -1,0 +1,4 @@
+
+Start the MongoDB service - net start mongodb
+Start Mongo Shell server - mongo
+Stop MongoDB Community Edition as a Windows Service - net stop MongoDB

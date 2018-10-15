@@ -1,0 +1,8 @@
+Modularizing in Vue
+Create Store
+- yarn quasar new store test
+	-getters
+	-mutations
+	-index.js
+	-state
+	-actions
