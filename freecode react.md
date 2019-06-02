@@ -1004,7 +1004,7 @@ Last but not least, don't forget to add the necessary bindings in the constructo
 **Answer**
 
 ```javascript
-  class ControlledInput extends React.Component {
+class ControlledInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -1025,7 +1025,7 @@ Last but not least, don't forget to add the necessary bindings in the constructo
     return (
       <div>
         { /* change code below this line */}
-        <input onChange={this.handleChange}/>
+        <input onChange={this.handleChange} value={this.state.input}/>
         { /* change code above this line */}
         <h4>Controlled Input:</h4>
         <p>{this.state.input}</p>
