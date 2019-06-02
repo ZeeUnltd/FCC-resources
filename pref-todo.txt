@@ -1,5 +1,0 @@
-Preference 
-
-Notification
-- Fees
-- communications

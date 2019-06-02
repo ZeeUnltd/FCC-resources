@@ -1,5 +1,0 @@
-- Unable to create Parents 
-- Students edit button not working
-- form fields not validating correctly, 
-- loading options; colors on the option chips are not visible enough
-- remove the q-separator in the mobile fee groups' singleview on the items, addon and classarms' tabs 
