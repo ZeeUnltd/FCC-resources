@@ -559,5 +559,4 @@ const addToDo = (todo) => {
 }
 
 const store = Redux.createStore(immutableReducer);
-store.dispatch(ADD_TO_DO)
 ```
