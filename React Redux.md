@@ -577,7 +577,7 @@ The reducer and action creator were modified to remove an item from an array bas
     case 'REMOVE_ITEM':
       // don't mutate state here or the tests will fail
       let newArr = [...state.filter((elem, index) => { 
-        return indexdx !== action.index
+        return index !== action.index
       })];
       return newArr;
     default:
