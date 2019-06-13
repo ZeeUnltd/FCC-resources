@@ -365,10 +365,11 @@ ReactDOM.render(<MyComponent />, document.getElementById('challenge-node'));
 
 React: Pass Props to a Stateless Functional Component
 The previous challenges covered a lot about creating and composing JSX elements, functional components, and ES6 style class components in React. With this foundation, it's time to look at another feature very common in React: props. In React, you can pass props, or properties, to child components. Say you have an App component which renders a child component called Welcome that is a stateless functional component. You can pass Welcome a user property by writing:
-
+```
 <App>
   <Welcome user='Mark' />
 </App>
+```
 You use custom HTML attributes that React provides support for to pass the property user to the component Welcome. Since Welcome is a stateless functional component, it has access to this value like so:
 
 ```
